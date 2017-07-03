@@ -1,0 +1,44 @@
+
+/*Tipo de selector {
+	propiedad: valor;
+	propiedad-2: valor;
+}*/
+
+/*body {
+	background: peru;
+}*/
+
+* {
+	border: 1px solid red;
+	margin: 10px;
+}
+header {
+
+	background: blue;
+}
+section {
+	background: purple;
+}
+/*selector descendente*/
+article h3 {
+	color: green;
+}
+/*selectores de clase*/
+.title-a{
+	background:yellow;
+}
+
+.title-b{
+	background: salmon;
+}
+/*Selector de id*/
+#header {
+	border: 3px solid black;
+}
+
+#guitarra {
+	border: 3px solid brown;
+}
+#portada{
+	border: 3px solid orange;
+}
