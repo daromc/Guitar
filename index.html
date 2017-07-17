@@ -4,8 +4,10 @@
 			<title> Invie - tus mejores guitarras ! </title>
 			<meta charset="utf-8">
 			<link rel="stylesheet" href="css/invie.css"/>
+<!-- 		<link rel="stylesheet" media="(max-width: 800px)" href="css/media-querie.css"/>-->			
 			<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 			<link href="https://fonts.googleapis.com/css?family=Allerta" rel="stylesheet">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	</head>
 	<body>
@@ -13,18 +15,19 @@
 		<section id="portada" class="portada contenedor background"><!-- Portada -->
 			<header id="header" class="header contenedor"> <!-- header -->
 			<figure class="logotipo"> <!-- Logotipo -->
-				<img src="imagenes/invie.png" width ="186" height="60" alt =" invie logotipo"/>
+				<img data-src="imagenes/invie.png" width ="186" height="60" alt =" invie logotipo"/>
 			</figure>
-			<nav class="menu"><!-- menu -->
+			<span class="burguer-button icon-menu" id="burguer-button"></span>
+			<nav class="menu" id="menu"><!-- menu -->
 				<ul>
 					<li>
-						<a href="index.html">*Home</a>
+						<a href="index.html">Home    |</a>
 					</li>
 					<li>
-						<a href="#guitarras">*Guitarras</a>
+						<a href="#guitarras">Guitarras    |</a>
 					</li>
 					<li>
-						<a href="precios.html">*Precios</a>
+						<a href="precios.html">Precios </a>
 					</li>
 				</ul>
 			</nav>
@@ -37,8 +40,11 @@
 		</section>
 		<section id="guitarras" class="guitarras contenedor"><!-- Guitarras -->
 			<h2>Nuestras Guitarras</h2>
+			<div class="video-responsive-contenedor">
+				<iframe class="video-responsive-src" width="560" height="315" src="https://www.youtube.com/embed/R1dW8M4EqYY" frameborder="0" allowfullscreen></iframe>
+			</div>
 			<article class="guitarra">
-				<img class="right" src="imagenes/invie-acustica.png" width ="200" alt =" invie acustica"/>
+				<img class="right" data-src="imagenes/invie-acustica.png" width ="200" alt =" invie acustica"/>
 				<H3 class="title-a">Invie Acustica</H3> <!-- guitarra 1 -->
 				<ol>
 					<li>
@@ -53,7 +59,7 @@
 				</ol>	
 			</article>
 			<article class="guitarra">
-				<img class="left" src="imagenes/invie-classic.png" width ="200" alt =" invie Clasica"/>
+				<img class="left" data-src="imagenes/invie-classic.png" width ="200" alt =" invie Clasica"/>
 				<H3 class="title-b">Invie Clasica</H3> <!-- guitarra 2 -->
 				<ol>
 					<li>
@@ -72,7 +78,7 @@
 			<footer class="footer">
 			<div class="contenedor">
 				<div class="contacto">
-					<img src="imagenes/invie-white.png" alt="logotipo blanco">
+					<img data-src="imagenes/invie-white.png" alt="logotipo blanco">
 					<a href ="tel:+573214921197"><strong>Telefono: </strong><span> 3214921197</span></a>
 					<a href ="mailto:daromc@gmail.com"><strong>E-mail: </strong><span> daromc@gmail.com</span></a>
 				</div>
@@ -115,5 +121,28 @@
 				</form>
 			</div>
 			</footer>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+			<script>
+				var consulta = window.matchMedia('(max-width: 500px)');
+				consulta.addListener(mediaQuery);
+				function mediaQuery() {
+					if(consulta.matches){
+						console.log('se cumplio la condicion');
+						$burguerButton.addEventListener('touchstart', toggleMenu);
+	
+						function toggleMenu(){
+							$menu.classlist.toggle('active')
+						};
+					} else{
+						console.log(' no se cumplio la condicion');
+					}
+				}
+				var $burguerButton = document.getElementById('burguer-button');
+				var $menu = document.getElementById('menu');
+				
+				var blazy = new Blazy ({
+					selector:'img'
+				});
+			</script>
 	</body>
 </html>
